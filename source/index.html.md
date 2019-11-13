@@ -1,123 +1,615 @@
 ---
-title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - javascript
-  - shell
-  - ruby
-  - python
+title: Partneroid Public API
+language_tabs:
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+- shell: Shell
+- http: HTTP
+- javascript: JavaScript
+- javascript--nodejs: Node.JS
+- ruby: Ruby
+- python: Python
+- java: Java
+- go: Go
+  toc_footers: []
+  includes: []
+  search: true
+  highlight_theme: darkula
+  headingLevel: 2
+  ---<h1 id="partneroid-public-api">Partneroid Public API v1.0.0</h1>
 
-includes:
-  - errors
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-search: true
----
+Public API to be used by user
 
-# Introduction
+Base URLs:
 
-Welcome to the Partneroid Competitors API! You can use our API to access competitor API endpoints, which can get information on competitors data from our database.
-
-We have language bindings in JavaScript! You can view code examples in the dark area to the right.
+- <a href="https://api.partneroid.com/v1">https://api.partneroid.com/v1</a>
 
 # Authentication
 
-> To authorize, use this code:
+- API Key (ApiKeyAuth)
+  - Parameter Name: **x-metapair-token**, in: header.
+
+<h1 id="partneroid-public-api-default">Default</h1>
+
+## get\_\_competitors
+
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.partneroid.com/v1/competitors?url=string \
+  -H 'Accept: application/json' \
+  -H 'x-metapair-token: API_KEY'
+
+```
+
+```http
+GET https://api.partneroid.com/v1/competitors?url=string HTTP/1.1
+Host: api.partneroid.com
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  Accept: "application/json",
+  "x-metapair-token": "API_KEY"
+};
+
+$.ajax({
+  url: "https://api.partneroid.com/v1/competitors",
+  method: "get",
+  data: "?url=string",
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+});
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'x-metapair-token':'API_KEY'
+
+};
+
+fetch('https://api.partneroid.com/v1/competitors?url=string',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
 
 ```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'x-metapair-token' => 'API_KEY'
+}
+
+result = RestClient.get 'https://api.partneroid.com/v1/competitors',
+  params: {
+  'url' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
 
 ```
 
 ```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'x-metapair-token': 'API_KEY'
+}
+
+r = requests.get('https://api.partneroid.com/v1/competitors', params={
+  'url': 'string'
+}, headers = headers)
+
+print r.json()
 
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+```java
+URL obj = new URL("https://api.partneroid.com/v1/competitors?url=string");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
 ```
 
-```javascript
-const kittn = require("kittn");
+```go
+package main
 
-let api = kittn.authorize("meowmeowmeow");
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "x-metapair-token": []string{"API_KEY"},
+
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.partneroid.com/v1/competitors", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
 ```
 
-> Make sure to replace `YOUR_API_KEY` with your API key.
+`GET /competitors`
 
-Competitor API uses API keys to allow access to the API. You can register a new Competitor API key at our [developer portal](https://developers.partneroid.com).
+Get competitors for a brand
 
-Competitor API expects for the API key to be included in all API requests to the server in a header that looks like the following:
+<h3 id="get__competitors-parameters">Parameters</h3>
 
-```headers
+| Name | In    | Type   | Required | Description |
+| ---- | ----- | ------ | -------- | ----------- |
+| url  | query | string | true     | none        |
+
+> Example responses
+
+> 200 Response
+
+```json
 {
-  x-metapair-token: YOUR_API_KEY
+  "data": [
+    {
+      "url": "http://example.com",
+      "name": "string",
+      "locations": ["string"],
+      "image": {
+        "inline": {
+          "uri": "string"
+        },
+        "small": {
+          "uri": "string"
+        },
+        "medium": {
+          "uri": "string"
+        },
+        "large": {
+          "uri": "string"
+        }
+      }
+    }
+  ]
 }
 ```
 
-<aside class="notice">
-You must replace <code>YOUR_API_KEY</code> with your personal API key.
+<h3 id="get__competitors-responses">Responses</h3>
+
+| Status | Meaning                                                          | Description | Schema |
+| ------ | ---------------------------------------------------------------- | ----------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)          | none        | Inline |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | none        | Inline |
+
+<h3 id="get__competitors-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+| Name         | Type              | Required | Restrictions | Description |
+| ------------ | ----------------- | -------- | ------------ | ----------- |
+| » data       | [object]          | true     | none         | none        |
+| »» url       | string(uri)\|null | false    | none         | none        |
+| »» name      | string            | true     | none         | none        |
+| »» locations | [string]          | true     | none         | none        |
+| »» image     | object            | false    | none         | none        |
+| »»» inline   | object            | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+| »»» small    | object\|null      | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+| »»» medium   | object\|null      | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+| »»» large    | object\|null      | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+
+Status Code **400**
+
+| Name         | Type   | Required | Restrictions | Description |
+| ------------ | ------ | -------- | ------------ | ----------- |
+| » statusCode | number | true     | none         | none        |
+| » error      | string | true     | none         | none        |
+| » message    | string | true     | none         | none        |
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
 </aside>
 
-# Competitors
+## get\_\_brands
 
-## Get Competitors
+> Code samples
+
+```shell
+# You can also use wget
+curl -X GET https://api.partneroid.com/v1/brands \
+  -H 'Accept: application/json' \
+  -H 'x-metapair-token: API_KEY'
+
+```
+
+```http
+GET https://api.partneroid.com/v1/brands HTTP/1.1
+Host: api.partneroid.com
+Accept: application/json
+
+```
+
+```javascript
+var headers = {
+  Accept: "application/json",
+  "x-metapair-token": "API_KEY"
+};
+
+$.ajax({
+  url: "https://api.partneroid.com/v1/brands",
+  method: "get",
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+});
+```
+
+```javascript--nodejs
+const fetch = require('node-fetch');
+
+const headers = {
+  'Accept':'application/json',
+  'x-metapair-token':'API_KEY'
+
+};
+
+fetch('https://api.partneroid.com/v1/brands',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
+```
 
 ```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'x-metapair-token' => 'API_KEY'
+}
+
+result = RestClient.get 'https://api.partneroid.com/v1/brands',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
 
 ```
 
 ```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'x-metapair-token': 'API_KEY'
+}
+
+r = requests.get('https://api.partneroid.com/v1/brands', params={
+
+}, headers = headers)
+
+print r.json()
 
 ```
 
+```java
+URL obj = new URL("https://api.partneroid.com/v1/brands");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "x-metapair-token": []string{"API_KEY"},
+
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.partneroid.com/v1/brands", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /brands`
+
+Filter brands by properties.
+
+<h3 id="get__brands-parameters">Parameters</h3>
+
+| Name       | In    | Type          | Required | Description |
+| ---------- | ----- | ------------- | -------- | ----------- |
+| locations  | query | array[string] | false    | none        |
+| categories | query | array[string] | false    | none        |
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "data": [
+    {
+      "url": "http://example.com",
+      "name": "string",
+      "locations": ["string"],
+      "image": {
+        "inline": {
+          "uri": "string"
+        },
+        "small": {
+          "uri": "string"
+        },
+        "medium": {
+          "uri": "string"
+        },
+        "large": {
+          "uri": "string"
+        }
+      }
+    }
+  ]
+}
+```
+
+<h3 id="get__brands-responses">Responses</h3>
+
+| Status | Meaning                                                          | Description | Schema |
+| ------ | ---------------------------------------------------------------- | ----------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)          | none        | Inline |
+| 400    | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | none        | Inline |
+
+<h3 id="get__brands-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+| Name         | Type              | Required | Restrictions | Description |
+| ------------ | ----------------- | -------- | ------------ | ----------- |
+| » data       | [object]          | false    | none         | none        |
+| »» url       | string(uri)\|null | false    | none         | none        |
+| »» name      | string            | true     | none         | none        |
+| »» locations | [string]          | true     | none         | none        |
+| »» image     | object            | false    | none         | none        |
+| »»» inline   | object            | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+| »»» small    | object\|null      | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+| »»» medium   | object\|null      | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+| »»» large    | object\|null      | false    | none         | none        |
+| »»»» uri     | string            | false    | none         | none        |
+
+Status Code **400**
+
+| Name         | Type   | Required | Restrictions | Description |
+| ------------ | ------ | -------- | ------------ | ----------- |
+| » statusCode | number | true     | none         | none        |
+| » error      | string | true     | none         | none        |
+| » message    | string | true     | none         | none        |
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## get\__brands_{id}
+
+> Code samples
+
 ```shell
-curl https://development.api.partneroid.com/v1/competitors?url=YOUR_SEARCH_URL -h x-metapair-token=YOUR_API_KEY
+# You can also use wget
+curl -X GET https://api.partneroid.com/v1/brands/{id} \
+  -H 'x-metapair-token: API_KEY'
+
+```
+
+```http
+GET https://api.partneroid.com/v1/brands/{id} HTTP/1.1
+Host: api.partneroid.com
+
 ```
 
 ```javascript
-fetch(
-  `https://development.api.partneroid.com/v1/competitors?url=YOUR_SEARCH_URL`,
-  {
-    method: "GET",
-    headers: {
-      "x-metapair-token": "YOUR_API_KEY"
-    }
+var headers = {
+  "x-metapair-token": "API_KEY"
+};
+
+$.ajax({
+  url: "https://api.partneroid.com/v1/brands/{id}",
+  method: "get",
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
   }
-);
+});
 ```
 
-> The above command returns JSON structured like this:
+```javascript--nodejs
+const fetch = require('node-fetch');
 
-```json
-[
-  {
-    "name": "IBM",
-    "locations": [],
-    "image": {
-      "inline": {
-        "uri": "data:image/png;base64,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"
-      },
-      "small": null,
-      "medium": null,
-      "large": null
-    }
-  }
-]
+const headers = {
+  'x-metapair-token':'API_KEY'
+
+};
+
+fetch('https://api.partneroid.com/v1/brands/{id}',
+{
+  method: 'GET',
+
+  headers: headers
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+
 ```
 
-This endpoint retrieves competitors.
+```ruby
+require 'rest-client'
+require 'json'
 
-### HTTP Request
+headers = {
+  'x-metapair-token' => 'API_KEY'
+}
 
-`GET https://development.api.partneroid.com/v1/competitors?url=<YOUR_SEARCH_URL>`
+result = RestClient.get 'https://api.partneroid.com/v1/brands/{id}',
+  params: {
+  }, headers: headers
 
-### URL Parameters
+p JSON.parse(result)
 
-| Parameter | Description                                      |
-| --------- | ------------------------------------------------ |
-| url       | The company url you want to get competitors for. |
+```
+
+```python
+import requests
+headers = {
+  'x-metapair-token': 'API_KEY'
+}
+
+r = requests.get('https://api.partneroid.com/v1/brands/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```java
+URL obj = new URL("https://api.partneroid.com/v1/brands/{id}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "x-metapair-token": []string{"API_KEY"},
+
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.partneroid.com/v1/brands/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /brands/{id}`
+
+Get brand by brand id
+
+<h3 id="get__brands_{id}-parameters">Parameters</h3>
+
+| Name | In   | Type   | Required | Description |
+| ---- | ---- | ------ | -------- | ----------- |
+| id   | path | string | true     | none        |
+
+<h3 id="get__brands_{id}-responses">Responses</h3>
+
+| Status | Meaning                                                 | Description      | Schema |
+| ------ | ------------------------------------------------------- | ---------------- | ------ |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Default Response | None   |
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
