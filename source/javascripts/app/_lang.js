@@ -39,27 +39,12 @@ under the License.
     $(".highlight.tab-" + language).show();
     $(".lang-specific." + language).show();
 
-    //window.recacheHeights();
-
-    // var $container = $("html,body");
-    // var $scrollTo = $(".highlight.tab-" + language).scrollIntoView(true);
-
-    // $container.animate(
-    //   {
-    //     scrollTop:
-    //       $scrollTo.offset().top -
-    //       $container.offset().top +
-    //       $container.scrollTop(),
-    //     scrollLeft: 0
-    //   },
-    //   300
-    // );
-
     $("html, body").animate(
       {
-        scrollTop: $(".highlight.tab-" + language)
-          .first()
-          .offset().top
+        scrollTop:
+          $(".highlight.tab-" + language)
+            .first()
+            .offset().top - 70
       },
       500
     );

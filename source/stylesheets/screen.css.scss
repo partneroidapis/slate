@@ -304,7 +304,7 @@ body {
     padding: 0 10px;
     line-height: 30px;
     outline: 0;
-
+    font-size: 0.9rem;
     &:active,
     &:focus {
       background-color: $lang-select-pressed-bg;
@@ -314,7 +314,7 @@ body {
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
-      border-radius: 30px;
+      border-radius: 4px;
     }
   }
 
