@@ -1,22 +1,22 @@
 ---
-
 title: Partneroid Public API
 language_tabs:
+  - shell: Shell
+  - http: HTTP
+  - javascript: JavaScript
+  - javascript--nodejs: Node.JS
+  - ruby: Ruby
+  - python: Python
+  - java: Java
+  - go: Go
+toc_footers: []
+includes: []
+search: true
+highlight_theme: darkula
+headingLevel: 2
+---
 
-- shell: Shell
-- http: HTTP
-- javascript: JavaScript
-- javascript--nodejs: Node.JS
-- ruby: Ruby
-- python: Python
-- java: Java
-- go: Go
-  toc_footers: []
-  includes: []
-  search: true
-  highlight_theme: darkula
-  headingLevel: 2
-  ---<h1 id="partneroid-public-api">Partneroid Public API v1.0.0</h1>
+<h1>Partneroid Public API v1.0.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
