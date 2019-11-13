@@ -196,25 +196,25 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen-eef0e0a2.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-c5541673.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo-1e815a84.png" class="logo" alt="Logo" />
         <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -228,16 +228,10 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#competitors" class="toc-h1 toc-link" data-title="Competitors">Competitors</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#get-competitors" class="toc-h2 toc-link" data-title="Get Competitors">Get Competitors</a>
                   </li>
               </ul>
           </li>
@@ -254,133 +248,70 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Partneroid Competitors API! You can use our API to access competitor API endpoints, which can get information on competitors data from our database.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>We have language bindings in JavaScript! You can view code examples in the dark area to the right.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+<pre class="highlight ruby tab-ruby"><code>
+</code></pre><pre class="highlight python tab-python"><code>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"kittn"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s2">"meowmeowmeow"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>YOUR_API_KEY</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Competitor API uses API keys to allow access to the API. You can register a new Competitor API key at our <a href="https://developers.partneroid.com">developer portal</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
+<p>Competitor API expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<pre class="highlight plaintext"><code>{
+  x-metapair-token: YOUR_API_KEY
+}
+</code></pre>
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<h1 id='competitors'>Competitors</h1><h2 id='get-competitors'>Get Competitors</h2><pre class="highlight ruby tab-ruby"><code>
+</code></pre><pre class="highlight python tab-python"><code>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://development.api.partneroid.com/v1/competitors?url<span class="o">=</span>YOUR_SEARCH_URL -h x-metapair-token<span class="o">=</span>YOUR_API_KEY
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+  <span class="s2">`https://development.api.partneroid.com/v1/competitors?url=YOUR_SEARCH_URL`</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"x-metapair-token"</span><span class="p">:</span> <span class="s2">"YOUR_API_KEY"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IBM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"inline"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data:image/png;base64,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"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves competitors.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET https://development.api.partneroid.com/v1/competitors?url=&lt;YOUR_SEARCH_URL&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -389,47 +320,8 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>url</td>
+<td>The company url you want to get competitors for.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -454,32 +346,16 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Unauthorized -- Your API key is wrong.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified url could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>Method Not Allowed -- You tried to access with an invalid method.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re requesting too many Competitors! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
@@ -494,10 +370,10 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
